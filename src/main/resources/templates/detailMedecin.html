@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/dashboard.html :: head"></head>
+<body>
+
+<header th:replace="fragments/dashboard.html" :: header></header>
+
+<div class="row">
+
+    <div class="col-2"></div>
+
+    <div class="col-8">
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <b>Numéro d'identification : </b><p th:text="${medecin.getId()}"></p>
+                    <br>
+                    <b>Nom : </b><p th:text="${medecin.getNom()}"></p>
+                    <br>
+                    <b>Prénom </b><p th:text="${medecin.getPrenom()}"></p>
+                    <br>
+                    <b>Nom : </b><p th:text="${medecin.getAdresse()}"></p>
+                    <br>
+                    <b>Téléphone : </b><p th:text="${medecin.getTel()}"></p>
+                    <br>
+                    <b>Spécialité complémentaire : </b>
+                    <p th:text="${
+                      medecin.getSpecialiteComplementaire() != null
+                      ? medecin.specialiteComplementaire.libelle
+                      : 'Pas de spécialité.'}">
+                    </p>
+                    <br>
+                    <b>Pays : </b><p th:text="${medecin.getDepartement().getPays().getNom()}"></p>
+                    <br>
+                    <b>Département : </b><p th:text="${medecin.getDepartement().getLibelle()}"></p>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-2"></div>
+
+</div>
+
+<br><br>
+
+<footer th:replace="fragments/footer.html" :: footer></footer>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/dashboard.html :: head"></head>
+<body>
+
+<header th:replace="fragments/dashboard.html" :: header></header>
+
+<div class="row">
+
+    <div class="col-2"></div>
+
+    <div class="col-8">
+        <table class="table border">
+            <thead>
+            <tr>
+                <th scope="col">Numéro d'identification</th>
+                <th scope="col">#</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="specialitecomplementaire: ${specialiteList}">
+                <th scope="row" th:text="${specialitecomplementaire.getLibelle()}"></th>
+
+                <td>
+                    <a class="btn btn-primary" th:href="@{/specialites/medecins/{id}(id=${specialitecomplementaire.id})}">
+                        Les médecins
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-2"></div>
+
+</div>
+
+<br><br>
+
+<footer th:replace="fragments/footer.html" :: footer></footer>
+
+</body>
+</html>

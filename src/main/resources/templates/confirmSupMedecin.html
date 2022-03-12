@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/dashboard.html :: head"></head>
+<body>
+
+<header th:replace="fragments/dashboard.html" :: header></header>
+
+<center>
+    <div class="card bg-info">
+        <div class="card-body">
+            <br>
+            <p class="text-white">Le médecin a bien été supprimé.</p>
+        </div>
+    </div>
+</center>
+
+<br>
+
+<div class="row">
+
+    <div class="col-2"></div>
+
+    <div class="col-8">
+        <table class="table border">
+            <thead>
+            <tr>
+                <th scope="col">Numéro d'identification</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Spécialité</th>
+                <th scope="col">#</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="medecin: ${medecinList}">
+                <th scope="row" th:text="${medecin.getId()}"></th>
+                <td th:text="${medecin.getNom()}"></td>
+                <td th:text="${medecin.getPrenom()}"></td>
+                <td th:text="${
+                                medecin.getSpecialiteComplementaire() != null
+                                    ? medecin.specialiteComplementaire.libelle
+                                    : 'Pas de spécialité.'
+                                }">
+                </td>
+                <td>
+                    <a class="btn btn-primary" th:href="@{/medecins/{id}(id=${medecin.id})}">Détails</a>
+                    <a class="btn btn-warning" href="">Modifier</a>
+                    <a class="btn btn-danger" th:href="@{/medecins/deleteMedecin/{id}(id=${medecin.id})}">Supprimer</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-2"></div>
+
+</div>
+
+<br><br>
+
+<footer th:replace="fragments/footer.html" :: footer></footer>
+
+</body>
+</html>

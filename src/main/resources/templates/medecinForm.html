@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/dashboard.html :: head"></head>
+<body>
+
+<header th:replace="fragments/dashboard.html :: header"></header>
+
+
+
+    <div class="row">
+        <div class="col-2"></div>
+
+        <div class="col-8">
+            <form class="" method="post" th:action="@{/medecins}"
+          th:object="${medecinForm}">
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
+            Une erreur est survenue, veuillez vérifier votre saisie
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="">Nom</label>
+            <input class="form-control" name="nomMedecin"
+                   th:errorclass="is-invalid"
+                   th:field="*{nom}" th:value="${medecinForm.nom}" type="text">
+            <div class="" th:if="${#fields.hasErrors('nom')}">
+                Veuillez saisir un nom valide
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="">Prénom</label>
+            <input class="form-control" name="prenomMedecin"
+                   th:errorclass="is-invalid"
+                   th:field="*{prenom}" th:value="${medecinForm.prenom}" type="text">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('prenom')}">
+                Veuillez saisir un prénom valide
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="">Adresse</label>
+            <input class="form-control" name="adresseMedecin"
+                   th:errorclass="is-invalid"
+                   th:field="*{adresse}" th:value="${medecinForm.adresse}" type="text">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('adresse')}">
+                Veuillez saisir une adresse valide
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="">Tél</label>
+            <input class="form-control" name="telMedecin"
+                   th:errorclass="is-invalid"
+                   th:field="*{tel}" th:value="${medecinForm.tel}" type="text">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('tel')}">
+                Veuillez saisir un numéro de téléphone valide (0123456789)
+            </div>
+        </div>
+        <br>
+        <div class="">
+            <label class="">Spécialité complémentaire</label>
+            <select class="form-control" name="specialiteMedecin"
+                    th:errorclass="is-invalid"
+                    th:field="*{specialiteComplementaire}" th:value="${medecinForm.specialiteComplementaire}"
+                    type="text">
+                <option selected value=""> Selectionnez une specialité</option>
+                <option th:each="specialiteComplementaire: ${specialiteList}" th:text="${specialiteComplementaire.libelle}"
+                        th:value="${specialiteComplementaire.id}"></option>
+            </select>
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="">Département</label>
+            <select class="form-control" name="specialiteMedecin"
+                    th:errorclass="is-invalid"
+                    th:field="*{departement}" th:value="${medecinForm.departement}"
+                    type="text">
+                <option selected value=""> Selectionnez un département</option>
+                <option th:each="departement: ${departementList}" th:text="${departement.libelle}"
+                        th:value="${departement.id}"></option>
+            </select>
+        </div>
+        <br>
+
+        <div class="">
+            <input class="btn btn-primary" type="submit">
+        </div>
+        <br>
+    </form>
+        </div>
+
+        <div class="col-2"></div>
+    </div>
+
+<br>
+
+<footer th:replace="fragments/footer.html" :: footer></footer>
+
+</body>
+</html>
