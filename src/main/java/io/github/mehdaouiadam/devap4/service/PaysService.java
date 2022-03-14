@@ -19,4 +19,7 @@ public class PaysService {
     public List<Pays> findAll(){
         return this.paysRepository.findAll();
     }
+
+    public Pays findPaysById(Long id) { return this.paysRepository.findPaysById(id); }
+
 }

@@ -76,7 +76,8 @@ public class MedecinController {
         return "confirmSupMedecin";
     }
 
-    /*@PostMapping("/nom")
+    //en développement
+    @PostMapping("/nom")
     public String getMedecinsByNom(@Valid @ModelAttribute("medecinForm") Medecin medecinForm, BindingResult result,
                                    Model model){
 
@@ -85,7 +86,7 @@ public class MedecinController {
         model.addAttribute("medecinList",medecins);
 
         return "ListMedecins";
-    }*/
+    }
 
     @PostMapping("")
     public String newMedecin(@Valid @ModelAttribute("medecinForm") Medecin medecinForm, BindingResult bindingResult)
@@ -103,6 +104,5 @@ public class MedecinController {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
             }
         }
-
     }
 }

@@ -2,6 +2,7 @@ package io.github.mehdaouiadam.devap4.service;
 
 import io.github.mehdaouiadam.devap4.entity.Departement;
 import io.github.mehdaouiadam.devap4.entity.Medecin;
+import io.github.mehdaouiadam.devap4.entity.Pays;
 import io.github.mehdaouiadam.devap4.entity.Specialitecomplementaire;
 import io.github.mehdaouiadam.devap4.repository.MedecinRepository;
 import io.github.mehdaouiadam.devap4.repository.DepartementRepository;
@@ -10,6 +11,7 @@ import io.github.mehdaouiadam.devap4.repository.SpecialiteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -48,6 +50,7 @@ public class MedecinService {
         return this.medecinRepository.findMedecinsBySpecialitecomplementaire(specialitecomplementaire);
     }
 
+    //en développement
     public List<Medecin> findMedecinsByNomOrPrenom(String nopr){
 
         List<Medecin> medecinsByNom = this.medecinRepository.findMedecinsByNom(nopr);
@@ -55,6 +58,29 @@ public class MedecinService {
 
         List<Medecin> medecins = Stream.concat(medecinsByNom.stream(),
                 medecinsByPrenom.stream()).collect(Collectors.toList());
+
+        return medecins;
+    }
+
+    public List<Medecin> findMedecinsByPays(Pays pays){
+
+        List<Medecin> medecins = new ArrayList<>();
+        List<Medecin> medecinsTemp;
+        List<Departement> departements = this.departementRepository.findDepartementsByPays(pays);
+
+        for(Integer i=0; i<departements.size(); i++){
+
+            Departement departement = departements.get(i);
+
+            medecinsTemp = this.medecinRepository.findMedecinsByDepartementOrderByIdAsc(departement);
+
+            if(i!=0) {
+                medecins = Stream.concat(medecins.stream(), medecinsTemp.stream()).collect(Collectors.toList());
+            }
+            else{
+                medecins = medecinsTemp;
+            }
+        }
 
         return medecins;
     }
