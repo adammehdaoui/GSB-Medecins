@@ -45,6 +45,15 @@ public class MedecinController {
         return "detailMedecin";
     }
 
+    @GetMapping("/nom")
+    public String getMedecinsByNom(Model model, @RequestParam(defaultValue="") String nopr){
+
+        List<Medecin> medecins = this.medecinService.findMedecinsByNomOrPrenom(nopr);
+        model.addAttribute("medecinList",medecins);
+
+        return "ListMedecins";
+    }
+
     @GetMapping("/createMedecin")
     public String createMedecin(Model model){
 
@@ -74,18 +83,6 @@ public class MedecinController {
         List<Medecin> medecins = this.medecinService.findAll();
         model.addAttribute("medecinList",medecins);
         return "confirmSupMedecin";
-    }
-
-    //en développement
-    @PostMapping("/nom")
-    public String getMedecinsByNom(@Valid @ModelAttribute("medecinForm") Medecin medecinForm, BindingResult result,
-                                   Model model){
-
-        String nopr = medecinForm.getNom();
-        List<Medecin> medecins = this.medecinService.findMedecinsByNomOrPrenom(nopr);
-        model.addAttribute("medecinList",medecins);
-
-        return "ListMedecins";
     }
 
     @PostMapping("")

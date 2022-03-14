@@ -50,11 +50,10 @@ public class MedecinService {
         return this.medecinRepository.findMedecinsBySpecialitecomplementaire(specialitecomplementaire);
     }
 
-    //en développement
     public List<Medecin> findMedecinsByNomOrPrenom(String nopr){
 
-        List<Medecin> medecinsByNom = this.medecinRepository.findMedecinsByNom(nopr);
-        List<Medecin> medecinsByPrenom = this.medecinRepository.findMedecinsByPrenom(nopr);
+        List<Medecin> medecinsByNom = this.medecinRepository.findMedecinsByNomContainingIgnoreCase(nopr);
+        List<Medecin> medecinsByPrenom = this.medecinRepository.findMedecinsByPrenomContainingIgnoreCase(nopr);
 
         List<Medecin> medecins = Stream.concat(medecinsByNom.stream(),
                 medecinsByPrenom.stream()).collect(Collectors.toList());

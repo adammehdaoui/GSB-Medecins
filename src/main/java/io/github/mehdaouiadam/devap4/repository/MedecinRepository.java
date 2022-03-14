@@ -14,9 +14,9 @@ public interface MedecinRepository extends JpaRepository<Medecin, Long> {
 
     Medecin findMedecinById(Long id);
 
-    List<Medecin> findMedecinsByNom(String nom);
+    List<Medecin> findMedecinsByNomContainingIgnoreCase(String nom);
 
-    List<Medecin> findMedecinsByPrenom(String nom);
+    List<Medecin> findMedecinsByPrenomContainingIgnoreCase(String prenom);
 
     List<Medecin> findAllByOrderByIdAsc();
     
