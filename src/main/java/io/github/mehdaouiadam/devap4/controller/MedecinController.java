@@ -69,8 +69,19 @@ public class MedecinController {
         return "medecinForm";
     }
 
-    @GetMapping("modifierMedecin/{id}")
-    public void editMedecin(){
+    @GetMapping("editMedecin/{id}")
+    public String editMedecin(Model model, @PathVariable("id") Long id){
+
+        Medecin medecin = this.medecinService.findMedecinById(id);
+
+        List<Departement> departements = this.departementService.findAll();
+        List<Specialitecomplementaire> specialites = this.specialiteService.findAll();
+
+        model.addAttribute("medecin",medecin);
+        model.addAttribute("departementList",departements);
+        model.addAttribute("specialiteList",specialites);
+
+        return "editMedecin";
     }
 
     @GetMapping("deleteMedecin/{id}")
@@ -83,6 +94,24 @@ public class MedecinController {
         List<Medecin> medecins = this.medecinService.findAll();
         model.addAttribute("medecinList",medecins);
         return "confirmSupMedecin";
+    }
+
+    @PostMapping("editMedecin/{id}")
+    public String editMedecin(@Valid @ModelAttribute("medecin") Medecin medecin, BindingResult bindingResult)
+            throws Exception{
+
+        if(bindingResult.hasErrors()){
+            return "editMedecin";
+        }
+        else {
+            try{
+                Medecin savedMedecin = medecinService.saveMedecin(medecin);
+                return "Homepage";
+            }
+            catch (Exception e) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            }
+        }
     }
 
     @PostMapping("")
