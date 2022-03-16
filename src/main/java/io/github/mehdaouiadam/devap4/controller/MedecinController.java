@@ -97,8 +97,8 @@ public class MedecinController {
     }
 
     @PostMapping("editMedecin/{id}")
-    public String editMedecin(@Valid @ModelAttribute("medecin") Medecin medecin, BindingResult bindingResult)
-            throws Exception{
+    public String editMedecin(@Valid @ModelAttribute("medecin") Medecin medecin, BindingResult bindingResult, @PathVariable("id") Long id)
+                    throws Exception{
 
         if(bindingResult.hasErrors()){
             return "editMedecin";
@@ -106,7 +106,7 @@ public class MedecinController {
         else {
             try{
                 Medecin savedMedecin = medecinService.saveMedecin(medecin);
-                return "Homepage";
+                return "confirmEditMedecin";
             }
             catch (Exception e) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST);

@@ -1,10 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/dashboard.html :: head"></head>
 <body>
+
+<header th:replace="fragments/dashboard.html :: header"></header>
+
+<center>
+    <div class="card bg-primary">
+        <div class="card-body">
+            <br>
+            <p class="text-white">Le médecin a bien été modifié.</p>
+        </div>
+    </div>
+</center>
+
+<br>
+
+<div class="row">
+    <div class="col-2"></div>
+
+    <small style="color: red">obligatoire *</small>
+
+    <div class="col-8">
+        <form class="" method="post" th:action="@{/medecins/editMedecin/{id}(id=${medecin.getId()})}"
+              th:object="${medecin}">
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
+                Une erreur est survenue, veuillez vérifier votre saisie
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="form-label">ID</label>
+                <input class="form-control" disabled name="id"
+                       th:value="${medecin.id}" type="number"
+                       placeholder="Automatique">
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="">Nom <small style="color: red">*</small></label>
+                <input class="form-control" name="nomMedecin"
+                       th:errorclass="is-invalid"
+                       th:field="*{nom}" th:value="${medecin.nom}" type="text"
+                       required="required">
+                <div class="" th:if="${#fields.hasErrors('nom')}">
+                    Veuillez saisir un nom valide
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="">Prénom <small style="color: red">*</small></label>
+                <input class="form-control" name="prenomMedecin"
+                       th:errorclass="is-invalid"
+                       th:field="*{prenom}" th:value="${medecin.prenom}" type="text"
+                       required="required">
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('prenom')}">
+                    Veuillez saisir un prénom valide
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="">Adresse <small style="color: red">*</small></label>
+                <input class="form-control" name="adresseMedecin"
+                       th:errorclass="is-invalid"
+                       th:field="*{adresse}" th:value="${medecin.adresse}" type="text"
+                       required="required">
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('adresse')}">
+                    Veuillez saisir une adresse valide
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="">Téléphone <small style="color: red">*</small></label>
+                <input class="form-control" name="telMedecin"
+                       th:errorclass="is-invalid"
+                       th:field="*{tel}" th:value="${medecin.tel}" type="text"
+                       required="required">
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('tel')}">
+                    Veuillez saisir un numéro de téléphone valide (0123456789)
+                </div>
+            </div>
+            <br>
+            <div class="">
+                <label class="">Spécialité complémentaire</label>
+                <select class="form-control" name="specialiteMedecin"
+                        th:errorclass="is-invalid"
+                        th:field="*{specialiteComplementaire}" th:value="${medecin.specialiteComplementaire}"
+                        type="text">
+                    <option selected value=""> Selectionnez une specialité</option>
+                    <option th:each="specialiteComplementaire: ${specialiteList}" th:text="${specialiteComplementaire.libelle}"
+                            th:value="${specialiteComplementaire.id}"></option>
+                </select>
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="">Département <small style="color: red">*</small></label>
+                <select class="form-control" name="specialiteMedecin"
+                        th:errorclass="is-invalid"
+                        th:field="*{departement}" th:value="${medecin.departement}"
+                        type="text" required="required">
+                    <option selected value=""> Selectionnez un département</option>
+                    <option th:each="departement: ${departementList}" th:text="${departement.libelle}"
+                            th:value="${departement.id}"></option>
+                </select>
+            </div>
+            <br>
+
+            <div class="">
+                <input class="btn btn-primary" type="submit">
+            </div>
+            <br>
+        </form>
+    </div>
+
+    <div class="col-2"></div>
+</div>
+
+<br>
+
+<footer th:replace="fragments/footer.html" :: footer></footer>
 
 </body>
 </html>
