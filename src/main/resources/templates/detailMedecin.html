@@ -13,25 +13,19 @@
         <div class="card card border-0 shadow-lg">
             <div class="card-body">
                 <div>
+                    <br>
                     <b>Numéro d'identification : </b><p th:text="${medecin.getId()}"></p>
-                    <br>
                     <b>Nom : </b><p th:text="${medecin.getNom()}"></p>
-                    <br>
                     <b>Prénom </b><p th:text="${medecin.getPrenom()}"></p>
-                    <br>
-                    <b>Nom : </b><p th:text="${medecin.getAdresse()}"></p>
-                    <br>
+                    <b>Adresse : </b><p th:text="${medecin.getAdresse()}"></p>
                     <b>Téléphone : </b><p th:text="${medecin.getTel()}"></p>
-                    <br>
                     <b>Spécialité complémentaire : </b>
                     <p th:text="${
                       medecin.getSpecialiteComplementaire() != null
                       ? medecin.specialiteComplementaire.libelle
                       : 'Pas de spécialité.'}">
                     </p>
-                    <br>
                     <b>Pays : </b><p th:text="${medecin.getDepartement().getPays().getNom()}"></p>
-                    <br>
                     <b>Département : </b><p th:text="${medecin.getDepartement().getLibelle()}"></p>
                     <br>
                 </div>

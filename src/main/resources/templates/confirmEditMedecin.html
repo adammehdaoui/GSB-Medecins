@@ -41,7 +41,7 @@
                 <input class="form-control" name="nomMedecin"
                        th:errorclass="is-invalid"
                        th:field="*{nom}" th:value="${medecin.nom}" type="text"
-                       required="required">
+                       required="required" style="width: 40%">
                 <div class="" th:if="${#fields.hasErrors('nom')}">
                     Veuillez saisir un nom valide
                 </div>
@@ -52,7 +52,7 @@
                 <input class="form-control" name="prenomMedecin"
                        th:errorclass="is-invalid"
                        th:field="*{prenom}" th:value="${medecin.prenom}" type="text"
-                       required="required">
+                       required="required" style="width: 40%">
                 <div class="invalid-feedback" th:if="${#fields.hasErrors('prenom')}">
                     Veuillez saisir un prénom valide
                 </div>
@@ -63,7 +63,7 @@
                 <input class="form-control" name="adresseMedecin"
                        th:errorclass="is-invalid"
                        th:field="*{adresse}" th:value="${medecin.adresse}" type="text"
-                       required="required">
+                       required="required" style="width: 70%">
                 <div class="invalid-feedback" th:if="${#fields.hasErrors('adresse')}">
                     Veuillez saisir une adresse valide
                 </div>
@@ -74,7 +74,7 @@
                 <input class="form-control" name="telMedecin"
                        th:errorclass="is-invalid"
                        th:field="*{tel}" th:value="${medecin.tel}" type="text"
-                       required="required">
+                       required="required" style="width: 40%">
                 <div class="invalid-feedback" th:if="${#fields.hasErrors('tel')}">
                     Veuillez saisir un numéro de téléphone valide (0123456789)
                 </div>

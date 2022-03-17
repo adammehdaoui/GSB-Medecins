@@ -3,13 +3,13 @@
 <head th:replace="fragments/dashboard.html :: head"></head>
 <body>
 
-<header th:replace="fragments/dashboard.html :: header"></header>
+<header th:replace="fragments/dashboard.html" :: header></header>
 
 <center>
     <div class="card bg-primary">
         <div class="card-body">
             <br>
-            <p class="text-white">Le médecin a été enregistré.</p>
+            <p class="text-white">Le médecin a bien été enregistré avec les informations suivantes.</p>
         </div>
     </div>
 </center>
@@ -17,95 +17,35 @@
 <br>
 
 <div class="row">
+
     <div class="col-2"></div>
 
-    <div class="col-8 card border-0 shadow-lg">
-        <br>
-        <small style="color: red">obligatoire *</small>
-
-        <form class="" method="post" th:action="@{/medecins}"
-              th:object="${medecinForm}">
-            <div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
-                Une erreur est survenue, veuillez vérifier votre saisie
-            </div>
-            <br>
-            <div class="form-group">
-                <label class="">Nom <small style="color: red">*</small></label>
-                <input class="form-control" name="nomMedecin"
-                       th:errorclass="is-invalid"
-                       th:field="*{nom}" th:value="${medecinForm.nom}" type="text"
-                       required="required">
-                <div class="" th:if="${#fields.hasErrors('nom')}">
-                    Veuillez saisir un nom valide
+    <div class="col-8">
+        <div class="card card border-0 shadow-lg">
+            <div class="card-body">
+                <div>
+                    <br>
+                    <b>Numéro d'identification : </b><p th:text="${medecin.getId()}"></p>
+                    <b>Nom : </b><p th:text="${medecin.getNom()}"></p>
+                    <b>Prénom </b><p th:text="${medecin.getPrenom()}"></p>
+                    <b>Adresse : </b><p th:text="${medecin.getAdresse()}"></p>
+                    <b>Téléphone : </b><p th:text="${medecin.getTel()}"></p>
+                    <b>Spécialité complémentaire : </b>
+                    <p th:text="${
+                      medecin.getSpecialiteComplementaire() != null
+                      ? medecin.specialiteComplementaire.libelle
+                      : 'Pas de spécialité.'}">
+                    </p>
+                    <b>Pays : </b><p th:text="${medecin.getDepartement().getPays().getNom()}"></p>
+                    <b>Département : </b><p th:text="${medecin.getDepartement().getLibelle()}"></p>
+                    <br>
                 </div>
             </div>
-            <br>
-            <div class="form-group">
-                <label class="">Prénom <small style="color: red">*</small></label>
-                <input class="form-control" name="prenomMedecin"
-                       th:errorclass="is-invalid"
-                       th:field="*{prenom}" th:value="${medecinForm.prenom}" type="text"
-                       required="required">
-                <div class="invalid-feedback" th:if="${#fields.hasErrors('prenom')}">
-                    Veuillez saisir un prénom valide
-                </div>
-            </div>
-            <br>
-            <div class="form-group">
-                <label class="">Adresse <small style="color: red">*</small></label>
-                <input class="form-control" name="adresseMedecin"
-                       th:errorclass="is-invalid"
-                       th:field="*{adresse}" th:value="${medecinForm.adresse}" type="text"
-                       required="required">
-                <div class="invalid-feedback" th:if="${#fields.hasErrors('adresse')}">
-                    Veuillez saisir une adresse valide
-                </div>
-            </div>
-            <br>
-            <div class="form-group">
-                <label class="">Téléphone <small style="color: red">*</small></label>
-                <input class="form-control" name="telMedecin"
-                       th:errorclass="is-invalid"
-                       th:field="*{tel}" th:value="${medecinForm.tel}" type="text"
-                       required="required">
-                <div class="invalid-feedback" th:if="${#fields.hasErrors('tel')}">
-                    Veuillez saisir un numéro de téléphone valide (0123456789)
-                </div>
-            </div>
-            <br>
-            <div class="">
-                <label class="">Spécialité complémentaire</label>
-                <select class="form-control" name="specialiteMedecin"
-                        th:errorclass="is-invalid"
-                        th:field="*{specialiteComplementaire}" th:value="${medecinForm.specialiteComplementaire}"
-                        type="text">
-                    <option selected value=""> Selectionnez une specialité</option>
-                    <option th:each="specialiteComplementaire: ${specialiteList}" th:text="${specialiteComplementaire.libelle}"
-                            th:value="${specialiteComplementaire.id}"></option>
-                </select>
-            </div>
-            <br>
-            <div class="form-group">
-                <label class="">Département <small style="color: red">*</small></label>
-                <select class="form-control" name="specialiteMedecin"
-                        th:errorclass="is-invalid"
-                        th:field="*{departement}" th:value="${medecinForm.departement}"
-                        type="text" required="required">
-                    <option selected value=""> Selectionnez un département</option>
-                    <option th:each="departement: ${departementList}" th:text="${departement.libelle}"
-                            th:value="${departement.id}"></option>
-                </select>
-            </div>
-            <br>
-
-            <div class="">
-                <input class="btn btn-primary" type="submit">
-            </div>
-            <br>
-        </form>
+        </div>
     </div>
 
     <div class="col-2"></div>
+
 </div>
 
 <br><br>

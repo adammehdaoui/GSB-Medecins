@@ -97,15 +97,25 @@ public class MedecinController {
     }
 
     @PostMapping("editMedecin/{id}")
-    public String editMedecin(@Valid @ModelAttribute("medecin") Medecin medecin, BindingResult bindingResult, @PathVariable("id") Long id)
+    public String editMedecin(@Valid @ModelAttribute("medecin") Medecin medecin, BindingResult bindingResult, @PathVariable("id") Long id, Model model)
                     throws Exception{
 
+        List<Departement> departements = this.departementService.findAll();
+        List<Specialitecomplementaire> specialites = this.specialiteService.findAll();
+
         if(bindingResult.hasErrors()){
+            model.addAttribute("departementList",departements);
+            model.addAttribute("specialiteList",specialites);
+
             return "editMedecin";
         }
         else {
             try{
                 Medecin savedMedecin = medecinService.saveMedecin(medecin);
+
+                model.addAttribute("departementList",departements);
+                model.addAttribute("specialiteList",specialites);
+
                 return "confirmEditMedecin";
             }
             catch (Exception e) {
@@ -115,7 +125,7 @@ public class MedecinController {
     }
 
     @PostMapping("")
-    public String newMedecin(@Valid @ModelAttribute("medecinForm") Medecin medecinForm, BindingResult bindingResult)
+    public String newMedecin(@Valid @ModelAttribute("medecinForm") Medecin medecinForm, BindingResult bindingResult, Model model)
             throws Exception {
 
         if(bindingResult.hasErrors()){
@@ -124,6 +134,9 @@ public class MedecinController {
         else {
             try{
                 Medecin savedMedecin = medecinService.saveMedecin(medecinForm);
+
+                model.addAttribute("medecin",savedMedecin);
+
                 return "confirmMedecin";
             }
             catch (Exception e) {

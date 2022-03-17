@@ -18,9 +18,9 @@
         <div class="card">
 
             <div class="card-header">
-                <h1 class="h5 mb-3 fw-normal text-muted">Tableau de bord</h1>
+                <h1 class="h5 mb-3 fw-normal text-muted">Gestionnaire de médecins</h1>
                 <small class="font-italic font-weight-bold">
-                       Gestionnaire de médecins : par département, par pays,
+                       Par département, par pays,
                        par spécialité. Possibilité d'ajouter un nouveau médecin et de supprimer un médecin en cas de
                        départ en retraite.
                 </small>
@@ -31,6 +31,13 @@
                 <div id="listMedecins buttonbox">
                     <a id="btnFetch" type=button class="btn btn-primary spinner-button btn btn-primary mb-2 text-light"
                        th:href="@{/medecins}">Liste des médecins</a>
+                </div>
+
+                <br>
+
+                <div id="createMedecin buttonbox">
+                    <a id="btnFetch4" type=button class="btn btn-primary spinner-button btn btn-primary mb-2 text-light"
+                       th:href="@{/medecins/createMedecin}">Enregistrer un nouveau médecin</a>
                 </div>
 
                 <br>
@@ -55,11 +62,6 @@
                 </div>
 
                 <br>
-
-                <div id="createMedecin buttonbox">
-                    <a id="btnFetch4" type=button class="btn btn-primary spinner-button btn btn-primary mb-2 text-light"
-                       th:href="@{/medecins/createMedecin}">Enregistrer un médecin</a>
-                </div>
             </div>
         </div>
     </div>
