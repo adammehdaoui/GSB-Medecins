@@ -12,54 +12,123 @@
         <img th:src="@{/img/medecin.png}" style="height: 600px"/>
     </div>
 
-    <div class="col-1"></div>
 
     <div class="col-4">
-        <br><br><br><br><br><br><br>
-        <div id="">
+        <br><br>
+        <div class="card">
 
-        <div id="listMedecins">
-            <a class="btn btn-primary" th:href="@{/medecins}">Liste des médecins</a>
+            <div class="card-header">
+                <h5>Tableau de bord</h5>
+                <small>Gestionnaire de médecins : par département, par pays,
+                       par spécialité. Possibilité d'ajouter un nouveau médecin et de supprimer un médecin en cas de
+                       départ en retraite.
+                </small>
+            </div>
+
+            <div class="card-body">
+                <br>
+                <div id="listMedecins buttonbox">
+                    <a id="btnFetch" type=button class="btn btn-primary spinner-button btn btn-primary mb-2 text-light"
+                       th:href="@{/medecins}">Liste des médecins</a>
+                </div>
+
+                <br>
+
+                <div id="listDepartements buttonbox">
+                    <a id="btnFetch1" type=button class="btn btn-primary spinner-button btn btn-primary mb-2 text-light"
+                       th:href="@{/departements}">Liste des départements</a>
+                </div>
+
+                <br>
+
+                <div id="listPays buttonbox">
+                    <a id="btnFetch2" type=button class="btn btn-primary spinner-button btn btn-primary mb-2 text-light"
+                       th:href="@{/pays}">Liste des pays</a>
+                </div>
+
+                <br>
+
+                <div id="listSpecialites buttonbox">
+                    <a id="btnFetch3" type=button class="btn btn-primary button spinner-button btn btn-primary mb-2
+                    text-light" th:href="@{/specialites}">Liste des spécialités</a>
+                </div>
+
+                <br>
+
+                <div id="createMedecin buttonbox">
+                    <a id="btnFetch4" type=button class="btn btn-primary spinner-button btn btn-primary mb-2 text-light"
+                       th:href="@{/medecins/createMedecin}">Enregistrer un médecin</a>
+                </div>
+            </div>
         </div>
-
-        <br>
-
-        <div id="listDepartements">
-            <a class="btn btn-primary" th:href="@{/departements}">Liste des départements</a>
-        </div>
-
-        <br>
-
-        <div id="listPays">
-            <a class="btn btn-primary" th:href="@{/pays}">Liste des pays</a>
-        </div>
-
-        <br>
-
-        <div id="listSpecialites">
-            <a class="btn btn-primary" th:href="@{/specialites}">Liste des spécialités</a>
-        </div>
-
-        <br>
-
-        <div id="createMedecin">
-            <a class="btn btn-primary" th:href="@{/medecins/createMedecin}">Enregistrer un médecin</a>
-        </div>
-
-    </div>
     </div>
 
     <div class="col-1"></div>
 </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 <footer th:replace="fragments/footer.html" :: footer></footer>
+
+<script>
+    $(document).ready(function() {
+        $("#btnFetch").click(function() {
+            // disable button
+            $(this).prop("disabled", true);
+            // add spinner to button
+            $(this).html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>\n' +
+                '  <span class="visually-hidden">Chargement</span>'
+            );
+        });
+    });
+
+    $(document).ready(function() {
+        $("#btnFetch1").click(function() {
+            // disable button
+            $(this).prop("disabled", true);
+            // add spinner to button
+            $(this).html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>\n' +
+                '  <span class="visually-hidden">Chargement</span>'
+            );
+        });
+    });
+
+    $(document).ready(function() {
+        $("#btnFetch2").click(function() {
+            // disable button
+            $(this).prop("disabled", true);
+            // add spinner to button
+            $(this).html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>\n' +
+                '  <span class="visually-hidden">Chargement</span>'
+            );
+        });
+    });
+
+    $(document).ready(function() {
+        $("#btnFetch3").click(function() {
+            // disable button
+            $(this).prop("disabled", true);
+            // add spinner to button
+            $(this).html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>\n' +
+                '  <span class="visually-hidden">Chargement</span>'
+            );
+        });
+    });
+
+    $(document).ready(function() {
+        $("#btnFetch4").click(function() {
+            // disable button
+            $(this).prop("disabled", true);
+            // add spinner to button
+            $(this).html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>\n' +
+                '  <span class="visually-hidden">Chargement</span>'
+            );
+        });
+    });
+</script>
 
 </body>
 </html>

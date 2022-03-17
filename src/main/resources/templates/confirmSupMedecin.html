@@ -44,7 +44,7 @@
                 </td>
                 <td>
                     <a class="btn btn-primary" th:href="@{/medecins/{id}(id=${medecin.id})}">Détails</a>
-                    <a class="btn btn-warning" href="">Modifier</a>
+                    <a class="btn btn-warning" th:href="@{/medecins/editMedecin/{id}(id=${medecin.id})}">Modifier</a>
                     <a class="btn btn-danger" th:href="@{/medecins/deleteMedecin/{id}(id=${medecin.id})}">Supprimer</a>
                 </td>
             </tr>

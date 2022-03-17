@@ -75,8 +75,8 @@
                         th:field="*{specialiteComplementaire}" th:value="${medecin.specialiteComplementaire}"
                         type="text">
                     <option selected value=""> Selectionnez une specialité</option>
-                    <option th:each="specialiteComplementaire: ${specialiteList}" th:text="${specialiteComplementaire.libelle}"
-                            th:value="${specialiteComplementaire.id}"></option>
+                    <option th:each="specialiteComplementaire: ${specialiteList}" th:text="${specialiteComplementaire.getLibelle()}"
+                            th:value="${specialiteComplementaire.getId()}"></option>
                 </select>
             </div>
             <br>

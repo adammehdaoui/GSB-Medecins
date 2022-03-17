@@ -18,6 +18,10 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <header>
@@ -53,21 +57,17 @@
             <li class="nav-item dropdown no-arrow mx-1">
             </li>
 
-            <!-- Nav Item - Notif à dév -->
-            <!--<li class="nav-item dropdown no-arrow mx-1">
-                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-bell fa-fw"></i>
-                    &lt;!&ndash; Counter - Alerts &ndash;&gt;
-                    <span class="badge badge-danger badge-counter">3+</span>
-                </a>
-            </li>-->
+            <li class="nav-item dropdown no-arrow mx-1">
+            </li>
+
+            <li class="nav-item dropdown no-arrow mx-1">
+            </li>
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - Déconnexion-->
             <li class="nav-item dropdown no-arrow">
-                <a href="" class="btn btn-danger">Se déconnecter</a>
+                <a th:href="@{/logout}" class="btn btn-danger">Se déconnecter</a>
             </li>
 
         </ul>
