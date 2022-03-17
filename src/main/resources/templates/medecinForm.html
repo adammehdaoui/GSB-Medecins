@@ -10,10 +10,11 @@
     <div class="row">
         <div class="col-2"></div>
 
-        <small style="color: red">obligatoire *</small>
+        <div class="col-8 card border-0 shadow-lg">
+            <br>
+            <small style="color: red">obligatoire *</small>
 
-        <div class="col-8">
-            <form class="" method="post" th:action="@{/medecins}"
+    <form class="" method="post" th:action="@{/medecins}"
           th:object="${medecinForm}">
         <div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
             Une erreur est survenue, veuillez vérifier votre saisie
@@ -98,7 +99,7 @@
         <div class="col-2"></div>
     </div>
 
-<br>
+<br><br>
 
 <footer th:replace="fragments/footer.html" :: footer></footer>
 

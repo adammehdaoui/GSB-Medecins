@@ -33,7 +33,7 @@
             <i class="fa fa-bars"></i>
         </button>
 
-        <a th:href="@{/}"><img th:src="@{/img/logoGSB.png}" style="height: 75px;"/></a>
+        <a th:href="@{/}"><img alt="GSB" th:src="@{/img/logoGSB.png}" style="height: 75px;"/></a>
 
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
@@ -67,7 +67,9 @@
 
             <!-- Nav Item - Déconnexion-->
             <li class="nav-item dropdown no-arrow">
-                <a th:href="@{/logout}" class="btn btn-danger">Se déconnecter</a>
+                <form method="post" th:action="@{/logout}">
+                    <input class="btn btn-outline-danger" type="submit" value="Se déconnecter"/>
+                </form>
             </li>
 
         </ul>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/dashboard.html :: head"></head>
+<body>
+
+<br><br><br>
+
+<div class="row">
+    <div class="col-3"></div>
+
+    <div class="col-6">
+        <main class="form-signin text-center">
+            <div class="card border-0 shadow-lg">
+                <div class="card-body">
+                    <form method="POST" th:action="@{/login}">
+                        <img alt="GSB" class="mt-4 mb-4" th:src="@{/img/logoGSB.png}" width="200">
+                        <br><br>
+                        <h1 class="h5 mb-3 fw-normal text-muted">Page de connexion</h1>
+                        <br>
+                        <div class="form-floating" style="margin-left: 240px">
+                            <input autofocus class="form-control" name="username" placeholder="Nom d'utilisateur" type="text"
+                            required="required" style="width : 50%;"/>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-floating" style="margin-left: 240px">
+                            <input class="form-control" name="password" placeholder="Mot de passe" type="password"
+                            required="required" style="width : 50%;"/>
+                        </div>
+                        <br>
+                        <br>
+                        <input class="btn btn-primary shadow mt-2" name="submit" type="submit"
+                               value="Se connecter"/>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="alert alert-danger" role="alert" th:if="${error}">
+                            Identifiant ou mot de passe incorrect
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="col-3"></div>
+</div>
+
+<br><br><br>
+
+<footer th:replace="fragments/footer.html" :: footer></footer>
+
+</body>
+
+</html>
