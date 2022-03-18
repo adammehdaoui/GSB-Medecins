@@ -3,9 +3,13 @@ package io.github.mehdaouiadam.devap4.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.lang.Nullable;
 
-import java.sql.*;
 import java.util.Optional;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table

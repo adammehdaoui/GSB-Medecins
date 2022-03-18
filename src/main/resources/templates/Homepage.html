@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/dashboard.html :: head"></head>
-
-<body>
+<body class="bg-image">
 <header th:replace="fragments/dashboard.html" :: header></header>
 
 <div class="row">
@@ -19,46 +18,46 @@
 
             <div class="card-header">
                 <h1 class="h5 mb-3 fw-normal text-muted">Gestionnaire de médecins</h1>
-                <small class="font-italic font-weight-bold">
+                <p><em><small>
                        Par département, par pays,
                        par spécialité. Possibilité d'ajouter un nouveau médecin et de supprimer un médecin en cas de
                        départ en retraite.
-                </small>
+                </small></em></p>
             </div>
 
             <div class="card-body">
                 <br>
                 <div id="listMedecins buttonbox">
-                    <a id="btnFetch" type=button class="btn btn-primary spinner-button btn btn-primary mb-2 text-light"
+                    <a id="btnFetch" type=button class="btn btn-primary"
                        th:href="@{/medecins}">Liste des médecins</a>
                 </div>
 
                 <br>
 
                 <div id="createMedecin buttonbox">
-                    <a id="btnFetch4" type=button class="btn btn-primary spinner-button btn btn-primary mb-2 text-light"
+                    <a id="btnFetch1" type=button class="btn btn-primary"
                        th:href="@{/medecins/createMedecin}">Enregistrer un nouveau médecin</a>
                 </div>
 
                 <br>
 
                 <div id="listDepartements buttonbox">
-                    <a id="btnFetch1" type=button class="btn btn-primary spinner-button btn btn-primary mb-2 text-light"
+                    <a id="btnFetch2" type=button class="btn btn-primary"
                        th:href="@{/departements}">Liste des départements</a>
                 </div>
 
                 <br>
 
                 <div id="listPays buttonbox">
-                    <a id="btnFetch2" type=button class="btn btn-primary spinner-button btn btn-primary mb-2 text-light"
+                    <a id="btnFetch3" type=button class="btn btn-primary"
                        th:href="@{/pays}">Liste des pays</a>
                 </div>
 
                 <br>
 
                 <div id="listSpecialites buttonbox">
-                    <a id="btnFetch3" type=button class="btn btn-primary button spinner-button btn btn-primary mb-2
-                    text-light" th:href="@{/specialites}">Liste des spécialités</a>
+                    <a id="btnFetch4" type=button class="btn btn-primary"
+                       th:href="@{/specialites}">Liste des spécialités</a>
                 </div>
 
                 <br>

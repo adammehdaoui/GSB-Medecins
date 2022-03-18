@@ -11,7 +11,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
@@ -49,9 +54,18 @@ public class MedecinController {
     public String getMedecinsByNom(Model model, @RequestParam(defaultValue="") String nopr){
 
         List<Medecin> medecins = this.medecinService.findMedecinsByNomOrPrenom(nopr);
-        model.addAttribute("medecinList",medecins);
 
-        return "ListMedecins";
+        if(medecins.size() == 0){
+            return "noMedecinNom";
+        }
+        else if (medecins.size()>0 & medecins.size()<5){
+            model.addAttribute("medecinList",medecins);
+            return "listMedecinsWithFooter";
+        }
+        else{
+            model.addAttribute("medecinList",medecins);
+            return "ListMedecins";
+        }
     }
 
     @GetMapping("/createMedecin")
