@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/dashboard.html :: head"></head>
+<body class="bg-image">
+
+<header th:replace="fragments/dashboard.html" :: header></header>
+
+<div class="row">
+
+    <div class="col-2"></div>
+
+    <div class="col-8 card border-0 shadow-lg">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Numéro d'identification</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Spécialité</th>
+                <th scope="col">#</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="medecin: ${medecinList}">
+                <th scope="row" th:text="${medecin.getId()}"></th>
+                <td th:text="${medecin.getNom()}"></td>
+                <td th:text="${medecin.getPrenom()}"></td>
+                <td th:text="${
+                                medecin.getSpecialiteComplementaire() != null
+                                    ? medecin.specialiteComplementaire.libelle
+                                    : 'Pas de spécialité.'
+                                }">
+                </td>
+                <td>
+                    <a class="btn btn-primary" th:href="@{/medecins/{id}(id=${medecin.id})}">Détails</a>
+                    <a class="btn btn-warning" th:href="@{/medecins/editMedecin/{id}(id=${medecin.id})}">Modifier</a>
+                    <a class="btn btn-danger" th:href="@{/medecins/deleteMedecin/{id}(id=${medecin.id})}">Supprimer</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-2"></div>
+
+</div>
+
+<br><br><br><br><br><br><br><br><br><br>
+
+<footer th:replace="fragments/footer.html :: footer"></footer>
+
+</body>
+</html>

@@ -8,14 +8,14 @@
     <div class="col-1"></div>
 
     <div class="col-5">
-        <img th:src="@{/img/medecin.png}" style="height: 600px"/>
+        <br><br>
+        <img th:src="@{/img/medecin.png}" class="bg-light rounded-circle" style="height: 500px;"/>
     </div>
 
 
     <div class="col-4">
         <br><br>
         <div class="card">
-
             <div class="card-header">
                 <h1 class="h5 mb-3 fw-normal text-muted">Gestionnaire de médecins</h1>
                 <p><em><small>
@@ -26,7 +26,6 @@
             </div>
 
             <div class="card-body">
-                <br>
                 <div id="listMedecins buttonbox">
                     <a id="btnFetch" type=button class="btn btn-primary"
                        th:href="@{/medecins}">Liste des médecins</a>
@@ -59,7 +58,6 @@
                     <a id="btnFetch4" type=button class="btn btn-primary"
                        th:href="@{/specialites}">Liste des spécialités</a>
                 </div>
-
                 <br>
             </div>
         </div>
@@ -68,7 +66,7 @@
     <div class="col-1"></div>
 </div>
 
-<br><br>
+<br><br><br><br>
 
 <footer th:replace="fragments/footer.html" :: footer></footer>
 
