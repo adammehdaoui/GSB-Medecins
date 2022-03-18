@@ -14,15 +14,18 @@ public class Pays {
 
     private String nom;
 
+    private String code_iso;
+
     @OneToMany(mappedBy = "pays")
     List<Departement> departements;
 
     public Pays(){
     }
 
-    public Pays(Long id, String nom, List<Departement> departements) {
+    public Pays(Long id, String nom, String code_iso, List<Departement> departements) {
         this.id = id;
         this.nom = nom;
+        this.code_iso = code_iso;
         this.departements = departements;
     }
 
@@ -42,6 +45,14 @@ public class Pays {
         this.nom = nom;
     }
 
+    public String getCode_iso() {
+        return code_iso;
+    }
+
+    public void setCodeIso(String code_iso) {
+        this.code_iso = code_iso;
+    }
+
     public List<Departement> getDepartements() {
         return departements;
     }
@@ -55,6 +66,7 @@ public class Pays {
         return "Pays{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
+                ", codeIso='" + code_iso + '\'' +
                 ", departements=" + departements +
                 '}';
     }
