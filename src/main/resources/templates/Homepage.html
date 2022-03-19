@@ -9,14 +9,15 @@
 
     <div class="col-5">
         <br><br>
-        <img th:src="@{/img/medecin.png}" class="bg-light rounded-circle" style="height: 500px;"/>
+        <img th:src="@{/img/medecin.png}" class="bg-light rounded-circle shadow-lg" style="height: 500px;"/>
     </div>
 
 
     <div class="col-4">
         <br><br>
-        <div class="card">
-            <div class="card-header">
+        <div class="card shadow-lg">
+            <div class="card-header shadow-lg">
+                <br>
                 <h1 class="h5 mb-3 fw-normal text-muted">Gestionnaire de médecins</h1>
                 <p><em><small>
                        Par département, par pays,
@@ -27,35 +28,35 @@
 
             <div class="card-body">
                 <div id="listMedecins buttonbox">
-                    <a id="btnFetch" type=button class="btn btn-primary"
+                    <a id="btnFetch" type=button class="btn btn-primary shadow-lg"
                        th:href="@{/medecins}">Liste des médecins</a>
                 </div>
 
                 <br>
 
                 <div id="createMedecin buttonbox">
-                    <a id="btnFetch1" type=button class="btn btn-primary"
+                    <a id="btnFetch1" type=button class="btn btn-primary shadow-lg"
                        th:href="@{/medecins/createMedecin}">Enregistrer un nouveau médecin</a>
                 </div>
 
                 <br>
 
                 <div id="listDepartements buttonbox">
-                    <a id="btnFetch2" type=button class="btn btn-primary"
+                    <a id="btnFetch2" type=button class="btn btn-primary shadow-lg"
                        th:href="@{/departements}">Liste des départements</a>
                 </div>
 
                 <br>
 
                 <div id="listPays buttonbox">
-                    <a id="btnFetch3" type=button class="btn btn-primary"
+                    <a id="btnFetch3" type=button class="btn btn-primary shadow-lg"
                        th:href="@{/pays}">Liste des pays</a>
                 </div>
 
                 <br>
 
                 <div id="listSpecialites buttonbox">
-                    <a id="btnFetch4" type=button class="btn btn-primary"
+                    <a id="btnFetch4" type=button class="btn btn-primary shadow-lg"
                        th:href="@{/specialites}">Liste des spécialités</a>
                 </div>
                 <br>

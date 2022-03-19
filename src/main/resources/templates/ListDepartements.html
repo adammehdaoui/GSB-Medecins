@@ -30,7 +30,7 @@
     </thead>
     <tbody>
     <tr th:each="departement: ${departementList}">
-        <th scope="row" th:text="${departement.getLibelle()}"></th>
+        <th scope="row" th:text="${departement.getLibelle()}+' '+${departement.getCodepostal()}"></th>
         <th scope="row"><a class="btn btn-primary"th:href="@{departements/medecins/{dep}(dep=${departement.id})}">
             Les médecins</a></th>
     </tr>

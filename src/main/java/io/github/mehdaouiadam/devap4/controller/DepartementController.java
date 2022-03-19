@@ -37,8 +37,12 @@ public class DepartementController {
         if(medecins.size() == 0){
             return "noMedecinDepartement";
         }
-        else {
-            model.addAttribute("medecinList", medecins);
+        else if (medecins.size()>0 & medecins.size()<5){
+            model.addAttribute("medecinList",medecins);
+            return "listMedecinsWithFooter";
+        }
+        else{
+            model.addAttribute("medecinList",medecins);
             return "ListMedecins";
         }
     }

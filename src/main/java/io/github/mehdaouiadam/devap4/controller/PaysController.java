@@ -39,6 +39,10 @@ public class PaysController {
         if(medecins.size() == 0){
             return "noMedecinPays";
         }
+        else if (medecins.size()>0 & medecins.size()<5){
+            model.addAttribute("medecinList",medecins);
+            return "listMedecinsWithFooter";
+        }
         else{
             model.addAttribute("medecinList",medecins);
             return "ListMedecins";
