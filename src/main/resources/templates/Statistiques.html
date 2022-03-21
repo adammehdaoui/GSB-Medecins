@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/dashboard.html :: head"></head>
+<body class="bg-image">
+
+<header th:replace="fragments/dashboard.html :: header"></header>
+
+<br><br>
+
+<div class="container">
+    <h1 align="center" class="h4 w-normal text-muted">Nombre de médecins par département</h1>
+
+    <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+
+    <br>
+
+    <div id="containerbis" style="width: 550px; height: 400px; margin: 0 auto"></div>
+
+</div>
+<script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <script th:inline="javascript">
+        $(function(){
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Organization'
+                },
+                subtitle: {
+                    text: 'Details'
+                },
+                xAxis: {
+                    categories: [[${keySet}]],
+                    crosshair: true
+                },
+                yAxis: {
+                    title: {
+                        text: 'Nombre de médecins'
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.0f}</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Nombre de médecins',
+                    data: [[${values}]]
+                }]
+            });
+        });
+    </script>
+
+    <script th:inline="javascript">
+        $(function(){
+            Highcharts.chart('containerbis', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Organization'
+                },
+                subtitle: {
+                    text: 'Details'
+                },
+                xAxis: {
+                    categories: [[${keySetBis}]],
+                    crosshair: true
+                },
+                yAxis: {
+                    title: {
+                        text: 'Nombre de médecins'
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.0f}</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Nombre de médecins',
+                    data: [[${valuesBis}]]
+                }]
+            });
+        });
+    </script>
+
+
+
+</body>
+</html>

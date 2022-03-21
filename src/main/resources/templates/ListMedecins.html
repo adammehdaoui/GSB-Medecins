@@ -17,7 +17,7 @@
                 <th scope="col">Nom</th>
                 <th scope="col">Prénom</th>
                 <th scope="col">Spécialité</th>
-                <th scope="col">#</th>
+                <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -33,7 +33,7 @@
                 </td>
                 <td>
                     <a class="btn btn-primary" th:href="@{/medecins/{id}(id=${medecin.id})}">Détails</a>
-                    <a class="btn btn-secondary" th:href="@{/medecins/editMedecin/{id}(id=${medecin.id})}">Modifier</a>
+                    <a class="btn btn-success" th:href="@{/medecins/editMedecin/{id}(id=${medecin.id})}">Modifier</a>
                     <a class="btn btn-danger" th:href="@{/medecins/deleteMedecin/{id}(id=${medecin.id})}">Supprimer</a>
                 </td>
             </tr>

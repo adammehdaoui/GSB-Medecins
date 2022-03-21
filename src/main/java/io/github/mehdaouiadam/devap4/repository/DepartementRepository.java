@@ -12,11 +12,10 @@ public interface DepartementRepository extends JpaRepository<Departement, Long> 
 
     List<Departement> findAll();
 
-    List<Departement> findDepartementsByLibelleContaining(String lib);
+    List<Departement> findDepartementsByLibelleContainingIgnoreCase(String lib);
 
     List<Departement> findDepartementsByPays(Pays pays);
 
     Departement findDepartementById(Long id);
-
 }
 

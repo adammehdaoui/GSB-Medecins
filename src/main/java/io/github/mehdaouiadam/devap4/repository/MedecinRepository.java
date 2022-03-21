@@ -22,6 +22,8 @@ public interface MedecinRepository extends JpaRepository<Medecin, Long> {
     
     List<Medecin> findMedecinsByDepartementOrderByIdAsc(Departement departement);
 
+    Long countByDepartement(Departement departement);
+
     List<Medecin> findMedecinsBySpecialitecomplementaire(Specialitecomplementaire specialitecomplementaire);
 
 }

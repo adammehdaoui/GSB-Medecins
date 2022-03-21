@@ -1,9 +1,6 @@
 package io.github.mehdaouiadam.devap4.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -16,7 +13,7 @@ public class Pays {
 
     private String code_iso;
 
-    @OneToMany(mappedBy = "pays")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "pays")
     List<Departement> departements;
 
     public Pays(){
@@ -54,7 +51,7 @@ public class Pays {
     }
 
     public List<Departement> getDepartements() {
-        return departements;
+        return this.departements;
     }
 
     public void setDepartements(List<Departement> departements) {

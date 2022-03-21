@@ -8,7 +8,7 @@
     <div class="col-1"></div>
 
     <div class="col-5">
-        <br><br>
+        <br><br><br>
         <img th:src="@{/img/medecin.png}" class="bg-light rounded-circle shadow-lg" style="height: 500px;"/>
     </div>
 
@@ -18,7 +18,7 @@
         <div class="card shadow-lg">
             <div class="card-header shadow-lg">
                 <br>
-                <h1 class="h5 mb-3 fw-normal text-muted">Gestionnaire de médecins</h1>
+                <h1 class="h4 mb-3 fw-normal text-muted">Gestionnaire de médecins</h1>
                 <p><em><small>
                        Par département, par pays,
                        par spécialité. Possibilité d'ajouter un nouveau médecin et de supprimer un médecin en cas de
@@ -27,6 +27,7 @@
             </div>
 
             <div class="card-body">
+                <br>
                 <div id="listMedecins buttonbox">
                     <a id="btnFetch" type=button class="btn btn-primary shadow-lg"
                        th:href="@{/medecins}">Liste des médecins</a>
