@@ -7,17 +7,17 @@
 
 <div class="row">
 
-    <div class="col-2"></div>
+    <div class="col"></div>
 
-    <div class="col-8 card border-0 shadow-lg">
+    <div class="col-10 card border-0 shadow-lg">
         <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col">Numéro d'identification</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">Spécialité</th>
-                <th scope="col">Action</th>
+                <th>Numéro d'identification</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Spécialité</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -33,7 +33,7 @@
                 </td>
                 <td>
                     <a class="btn btn-primary" th:href="@{/medecins/{id}(id=${medecin.id})}">Détails</a>
-                    <a class="btn btn-success" th:href="@{/medecins/editMedecin/{id}(id=${medecin.id})}">Modifier</a>
+                    <a class="btn btn-warning" th:href="@{/medecins/editMedecin/{id}(id=${medecin.id})}">Modifier</a>
                     <a class="btn btn-danger" th:href="@{/medecins/deleteMedecin/{id}(id=${medecin.id})}">Supprimer</a>
                 </td>
             </tr>
@@ -41,7 +41,7 @@
         </table>
     </div>
 
-    <div class="col-2"></div>
+    <div class="col"></div>
 
 </div>
 

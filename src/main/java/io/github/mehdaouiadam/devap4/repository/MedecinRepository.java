@@ -2,7 +2,6 @@ package io.github.mehdaouiadam.devap4.repository;
 
 import io.github.mehdaouiadam.devap4.entity.Departement;
 import io.github.mehdaouiadam.devap4.entity.Medecin;
-import io.github.mehdaouiadam.devap4.entity.Pays;
 import io.github.mehdaouiadam.devap4.entity.Specialitecomplementaire;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -22,9 +21,11 @@ public interface MedecinRepository extends JpaRepository<Medecin, Long> {
     
     List<Medecin> findMedecinsByDepartementOrderByIdAsc(Departement departement);
 
+    List<Medecin> findMedecinsBySpecialitecomplementaire(Specialitecomplementaire specialitecomplementaire);
+
     Long countByDepartement(Departement departement);
 
-    List<Medecin> findMedecinsBySpecialitecomplementaire(Specialitecomplementaire specialitecomplementaire);
+    Long countBySpecialitecomplementaire(Specialitecomplementaire specialitecomplementaire);
 
 }
 

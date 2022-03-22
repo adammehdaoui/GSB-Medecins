@@ -3,25 +3,32 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="gsbmedecins">
+    <meta name="author" content="adammehdaoui">
 
     <title>GSB Médecins</title>
 
+    <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
+    <!-- Style perso -->
     <link rel="stylesheet" th:href="@{/css/style.css}">
 
-
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Application Google fonts -->
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
 </head>
 
 <header>
@@ -33,7 +40,7 @@
             <i class="fa fa-bars"></i>
         </button>
 
-        <a th:href="@{/}"><img alt="GSB" th:src="@{/img/logoGSB.png}" style="height: 85px;"/></a>
+        <a th:href="@{/}"><img alt="GSB" th:src="@{/img/logoGSB.png}" style="height: 80px;"/></a>
 
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
@@ -63,7 +70,18 @@
             <li class="nav-item dropdown no-arrow mx-1">
             </li>
 
-            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item dropdown no-arrow">
+                <a class="btn btn-primary" th:href="@{/dashboard}">Tableau de bord</a>
+            </li>
+
+            <li class="nav-item dropdown no-arrow mx-1">
+            </li>
+
+            <li class="nav-item dropdown no-arrow mx-1">
+            </li>
+
+            <li class="nav-item dropdown no-arrow mx-1">
+            </li>
 
             <!-- Nav Item - Déconnexion-->
             <li class="nav-item dropdown no-arrow">

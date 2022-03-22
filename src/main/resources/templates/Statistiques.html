@@ -7,23 +7,48 @@
 
 <br><br>
 
-<div class="container">
-    <h1 align="center" class="h4 w-normal text-muted">Nombre de médecins par département</h1>
+<div class="row">
+    <div class="col-2"></div>
 
-    <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+    <div class="col-8">
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <br><br>
 
-    <br>
+                <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
 
-    <div id="containerbis" style="width: 550px; height: 400px; margin: 0 auto"></div>
+                <br><br>
 
+                <hr class="divider">
+
+                <br><br>
+
+                <div id="containerbis" style="width: 550px; height: 400px; margin: 0 auto"></div>
+
+                <br><br>
+
+                <hr class="divider">
+
+                <br><br>
+
+                <div id="containerter" style="width: 550px; height: 400px; margin: 0 auto"></div>
+
+                <br><br>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-2"></div>
 </div>
-<script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
-<script
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
     <script th:inline="javascript">
         $(function(){
@@ -32,10 +57,7 @@
                     type: 'column'
                 },
                 title: {
-                    text: 'Organization'
-                },
-                subtitle: {
-                    text: 'Details'
+                    text: '<br><h1 class="h4 mb-3 fw-normal text-muted">Nombre de médecins par département<h1>'
                 },
                 xAxis: {
                     categories: [[${keySet}]],
@@ -75,10 +97,7 @@
                     type: 'column'
                 },
                 title: {
-                    text: 'Organization'
-                },
-                subtitle: {
-                    text: 'Details'
+                    text: '<br><h1 class="h4 mb-3 fw-normal text-muted">Nombre de médecins par pays</h1><br>'
                 },
                 xAxis: {
                     categories: [[${keySetBis}]],
@@ -111,7 +130,51 @@
         });
     </script>
 
+    <script th:inline="javascript">
+        $(function(){
+            Highcharts.chart('containerter', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: '<br><h1 class="h4 mb-3 fw-normal text-muted">Nombre de médecins par spécialité</h1><br>'
+                },
+                xAxis: {
+                    categories: [[${keySetTer}]],
+                    crosshair: true
+                },
+                yAxis: {
+                    title: {
+                        text: 'Nombre de médecins'
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.0f}</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Nombre de médecins',
+                    data: [[${valuesTer}]]
+                }]
+            });
+        });
+    </script>
 
+<br>
+<br>
+<br>
+
+<footer th:replace="fragments/footer.html :: footer"></footer>
 
 </body>
 </html>
