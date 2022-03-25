@@ -24,6 +24,10 @@ public class DepartementService {
 
     public List<Departement> findAll(){return this.departementRepository.findAll();}
 
+    public List<Departement> findDepartementsByLibelle(String lib){
+        return this.departementRepository.findDepartementsByLibelleContainingIgnoreCase(lib);
+    }
+
     public Map<String, Long> findDepartementCountMedecins(){
 
         List<Departement> allDepartements = this.findAll();
