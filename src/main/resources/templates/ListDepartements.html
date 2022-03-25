@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>GSB Médecins</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="bg-image">
+
+<header th:replace="fragments/dashboard.html" :: header></header>
+
+<div class="row">
+    <div class="col-2"></div>
+
+    <div class="col-8">
+        <div class="card shadow-lg">
+            <br>
+            <br>
+            <div class="form">
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search shadow-lg"
+                      method="get" action="/departements">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Chercher un département"
+                               aria-label="Search" aria-describedby="basic-addon2" id="search" name="lib">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <br><br>
+
+            <div class="card border-0">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Département</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="departement: ${departementList}">
+                            <th scope="row" th:text="${departement.getLibelle()}+' '+${departement.getCodepostal()}"></th>
+                            <th scope="row"><a class="btn btn-primary"th:href="@{departements/medecins/{dep}(dep=${departement.id})}">
+                                Les médecins</a></th>
+                        </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-2"></div>
+</div>
+
+<br><br><br>
+
+</body>
+</html>
