@@ -7,6 +7,7 @@ import io.github.mehdaouiadam.devap4.repository.MedecinRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,5 +46,22 @@ public class DepartementService {
         }
 
         return data;
+    }
+
+    public List<String> findAllNom(){
+
+        List<Departement> allDepartements = this.departementRepository.findAll();
+        List<String> departementsNom = new ArrayList<String>();
+
+        for(Integer i=0; i<allDepartements.size(); i++){
+
+            Departement departementObj = allDepartements.get(i);
+            String nomDep = departementObj.getLibelle();
+
+            departementsNom.add(nomDep);
+
+        }
+
+        return departementsNom;
     }
 }
