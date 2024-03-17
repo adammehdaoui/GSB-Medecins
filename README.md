@@ -1,4 +1,4 @@
-# ***AP4 GSB Médecins - Projet Java (Framework Spring)***
+# ***AP4 GSB Médecins - Projet Java (Spring Boot)***
 **Projet en BTS SIO; Sujet : application de gestion d'activité pour un médecin**
 
 ## Page d'accueil du site :
